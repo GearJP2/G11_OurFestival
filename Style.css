@@ -6,3 +6,19 @@ p {
     color: #7B7424;
 }
 
+.boothdi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boothdi table a {
+    font-size: 2vw; text-decoration: none; font-family: "Inter", sans-serif; color: #7B7424;
+    background-color: antiquewhite; border-radius: 100vw; padding-left: 1.5vw; padding-right: 1.5vw;
+    padding-top: 0.5vw; padding-bottom: 0.5vw; transition: all 0.5s ease; 
+    margin-left: 2.5vw;margin-right: 2.5vw;
+}
+
+.boothdi table a:hover {
+    color: #FFFDFE; background-color: #7B7424;
+}
