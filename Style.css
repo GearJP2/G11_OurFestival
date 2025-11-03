@@ -66,3 +66,12 @@ p {
 .img-slide:hover {
   transform: translateZ(3.5px);
 }
+
+.custom-shadow  {
+    box-shadow: 0px 4px 12px rgb(0, 0, 0, 0.8);
+}
+
+.text-custom{
+    color: #7B7424;
+    font-family: "Inter";
+}
