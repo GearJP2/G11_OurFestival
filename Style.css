@@ -75,3 +75,32 @@ p {
     color: #7B7424;
     font-family: "Inter";
 }
+
+
+.product-card {
+    border: 1px solid #f7a4a4;
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+.product-img-placeholder {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
