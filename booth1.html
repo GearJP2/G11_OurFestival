@@ -9,23 +9,24 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
     </style>
 </head>
 <body>
 
     <header class="header"> <!-- ไตเติ้ล -->
         <div class="logo-section">
-        <img src="./resources/photo.jpeg" alt="Logo" class="logo-img">
-
-        <div class="site-name">
-            <a href="index.html" class="title"><span class="empalphabet">N</span>EWBURRY</a>
-            <span class="subtitle">11 Grp.</span>
+            <img src="./resources/photo.jpeg" alt="Logo" class="logo-img">
+    
+            <div class="site-name">
+                <a href="index.html" class="title"><span class="empalphabet">E</span>LEVEN<span class="grp">GROUP</span></a>
+                <span class="subtitle"> Horizon Co.</span>
+            </div>
         </div>
-        </div>
-
+    
         <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="register.html">Register</a>
+            <a href="index.html">Home</a>
+            <a href="register.html">Register</a>
         </div>
     </header>
 
@@ -117,6 +118,47 @@
             </div>
         </div>
     </div>
+
+    <section class="boothdi"> <!-- จีโอ้ -->
+        <div><a href="booth1.html">Gourmet Delights</a></div>
+        <div><a href="booth2.html">Sugar & Sweetness</a></div>
+        <div><a href="booth3.html">Luxury Fabric Studio</a></div>
+        <div><a href="booth4.html">The Book Haven</a></div>
+    </section>
+
+    <footer><!-- ไบร์ท -->
+        <div class="footerContainer">
+            <div class="Address">
+                <p>มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต<br>
+                    99 หมู่ 18 ถนนพหลโยธิน ตำบลคลองหนึ่ง<br>
+                    อำเภอคลองหลวง จังหวัดปทุมธานี 12120</p>
+            </div>
+            <div class="Contact">
+                <p>Contact US</p>
+                <div Class="list">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="feedbut">
+                <a href="feedback.html" class="btn">feedback</a>
+            </div>
+            <div class="up">
+                <button class="btn-top" onclick="scrollToTop()">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
