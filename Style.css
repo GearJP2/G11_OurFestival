@@ -258,7 +258,7 @@ button:hover {
   padding-top: 15px;
   gap: 50px;
   justify-content: center;
-  box-shadow: 0px -2px 5px black;
+  box-shadow: 0px -1px 4px black;
 }
 
 .footerContainer p {
