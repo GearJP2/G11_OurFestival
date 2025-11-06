@@ -3,7 +3,7 @@ body {
 }
 
 p {
-    color: #7d5ba6; font-family: "B612";
+    color: #9B4F96; font-family: "B612";
 }
 
 .header {
@@ -72,14 +72,14 @@ p {
     align-items: center;
 }
 
-.boothdi table a {
-    font-size: 0.8vw; text-decoration: none; font-family: "B612"; color: #9B4F96;
+.boothdi a {
+    font-size: 0.8vw; text-decoration: none; font-family: "B612"; color: #9B4F96; font-weight: bold;
     background-color: #eed6ec; border-radius: 100vw; padding-left: 1vw; padding-right: 1vw;
     padding-top: 0.5vw; padding-bottom: 0.4vw; transition: all 0.5s ease; 
     margin-left: 2.5vw;margin-right: 2.5vw;
 }
 
-.boothdi table a:hover {
+.boothdi a:hover {
     color: #f7f7f7; background-color: #9B4F96;
 }
 
@@ -95,7 +95,7 @@ p {
 .slide-track {
   display: flex;
   width: calc(600px*12);
-  animation: scroll 40s linear infinite;
+  animation: scroll 70s linear infinite;
 }
 .slide-track:hover {
   animation-play-state: paused;
@@ -120,7 +120,7 @@ p {
   width: 100%;
   border-radius: 5px;
   border: none;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   transition: transform 1s;
 }
 .img-slide:hover {
