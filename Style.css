@@ -121,15 +121,6 @@ p {
   padding: 0;
 }
 
-body {
-  background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-
 .feedback-form {
   background: #fff;
   padding: 30px 40px;
