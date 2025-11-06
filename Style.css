@@ -42,15 +42,15 @@ p {
 }
 
 .empalphabet {
-  font-size: 2.2vw;
+  font-size: 2.2vw; font-family: "B612";
 }
 
 .grp {
   font-family: "B612";
     text-decoration: none;
-    font-size: 1.8vw;
+    font-size: 1.8vw; font-weight: lighter;
     margin-bottom: -0.8vw;
-    color: #e3c0e1;
+    color: #dedede;
 }
 
 .nav-links {
@@ -74,13 +74,14 @@ p {
 }
 
 .boothdi {
-    display: flex; background-color: #9B4F96; padding: 1.5vw;
+    display: flex; background-color: #9B4F96; padding: 1.5vw; 
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center;
 }
 
 .boothdi a {
-    font-size: 0.9vw; text-decoration: none; font-family: "B612"; color: #ffffff;
+    font-size: 0.85rem; text-decoration: none; font-family: "B612"; color: #ffffff;
     border-radius: 100vw; font-weight: bold;
     padding-top: 0.5vw; padding-bottom: 0.4vw; transition: all 0.5s ease; 
     margin-left: 2.5vw;margin-right: 2.5vw;
@@ -95,7 +96,7 @@ p {
 .slider {
   margin: auto;
   position: relative;
-  height: 25vw;
+  height: 41rem;
   width: 100%;
   display: grid;
   place-items: center;
@@ -103,7 +104,7 @@ p {
 }
 .slide-track {
   display: flex;
-  width: calc(600px*12);
+  width: calc(71rem*12);
   animation: scroll 70s linear infinite;
 }
 .slide-track:hover {
@@ -118,17 +119,15 @@ p {
   }
 }
 .slide {
-  height: 21.8vw;
-  width: 37.5vw;
-  display: flex;
-  align-items: center;
-  padding: 0.5vw;
+  height: auto;
+  width: 100%;
+  display: flex; 
+  align-items: center; padding: 0.5rem;
   perspective: 100px;
 }
 .img-slide {
   width: 100%;
-  border-radius: 0.5vw;
-  border: none;
+  border: none; border-radius: 1.5vw;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s;
 }
@@ -233,18 +232,18 @@ textarea {
 
 button {
   width: 100%;
-  padding: 12px;
-  background: #6a9cf8;
+  border-radius: 100vw;
+  padding: 1vw;
+  background: #9B4F96;
   color: white;
   font-size: 16px;
   border: none;
-  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.5s ease;
 }
 
 button:hover {
-  background: #5586e6;
+  background: #c6c6c6;
 }
 
 .success-message {
@@ -257,12 +256,11 @@ button:hover {
  
 .footerContainer{
   width: 100%;
-  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   align-items: center; 
-  padding-top: 15px;
-  gap: 50px;
+  padding-top: 1rem;
+  gap: 20rem;
   justify-content: center;
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -272,7 +270,7 @@ button:hover {
 }
 
 .Address p{
-  font-size: 1vw; font-family: "Noto Sans Thai", sans-serif;
+  font-size: 0.8rem; font-family: "Noto Sans Thai", sans-serif;
 }
 
 .Contact{
@@ -293,4 +291,34 @@ button:hover {
 
 .list a:hover {
   color: #9B4F96;
+}
+
+.feedbut a {
+  color: #ffffff; text-decoration: none; font-family: "B612"; background-color: #9B4F96; font-size:0.8rem;
+}
+
+.feedbut a:hover {
+  color: #9B4F96;
+  background-color: #ffffff; transition: 0.5s ease;
+}
+
+.hero {
+  position: relative;
+  height: 92vh;
+  background-image: url(resources/slide-cloth2.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17.5rem;
+  font-family: "B612", sans-serif;
+}
+
+.hero p1 {
+  background: linear-gradient(100deg, #ab3a3a, #9B4F96); text-align: center;
+    -webkit-background-clip: text; user-select: none; line-height: 1.2;
+    -webkit-text-fill-color: transparent; font-family: "B612", sans-serif; 
+  font-weight: bolder;
 }
