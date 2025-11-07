@@ -32,23 +32,23 @@ p {
 }
 
 .site-name a {
-  font-family: "B612"; text-decoration: none; font-size: 1.8vw;
+  font-family: "B612"; text-decoration: none; font-size: 2rem;
   margin-bottom: -0.8vw; font-weight: 600;
   color: #9B4F96;
 }
 
 .subtitle {
-  font-size: 0.5vw; font-family: "Inter"; font-weight: bold; margin-left: 0.2vw;
+  font-size: 0.6rem; font-family: "Inter"; font-weight: bold; margin-left: 0.2vw;
 }
 
 .empalphabet {
-  font-size: 2.2vw; font-family: "B612";
+  font-size: 2.25rem; font-family: "B612";
 }
 
 .grp {
   font-family: "B612";
     text-decoration: none;
-    font-size: 1.8vw;
+    font-size: 2rem;
     margin-bottom: -0.8vw;
     color: #eed6ec;
 }
@@ -60,7 +60,7 @@ p {
 
 .nav-links a {
   font-family: "B612";
-  color: #9B4F96; font-size: 0.8vw;
+  color: #9B4F96; font-size: 0.85rem;
   border: none;
   padding-left: 1vw ; padding-right: 1vw; padding-top: 0.5vw; padding-bottom: 0.4vw;
   border-radius: 0.5vw; font-weight: bold;
@@ -304,13 +304,13 @@ button:hover {
 
 .hero {
   position: relative;
-  height: 55rem;
+  background-size: cover;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   display: flex;
   align-items: center;
-  justify-content: center; min-height: 51rem;
+  justify-content: center; min-height: 45.1rem;
   font-family: "B612", sans-serif;
 }
 
