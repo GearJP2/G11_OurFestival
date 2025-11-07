@@ -2,15 +2,38 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="Style.css" rel="stylesheet">
-    <title>Bootstrap 5 form validation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+    </style>
+    <title>Register</title>
+
 </head>
 
-<body style="background: linear-gradient(135deg, #eed6ec, rgb(200, 165, 165)) ;display: flex;  justify-content: center;align-items: center;  height: 100vh;">
+<body>
+
+    <header class="header"> <!-- ไตเติ้ล -->
+        <div class="logo-section">
+        <img src="./resources/photo.jpeg" alt="Logo" class="logo-img">
+
+        <div class="site-name">
+            <a href="index.html" class="title"><span class="empalphabet">E</span>LEVEN<span class="grp">GROUP</span></a>
+            <span class="subtitle"> Horizon Co.</span>
+        </div>
+        </div>
+
+        <div class="nav-links">
+        <a href="index.html">Home</a>
+        </div>
+    </header>
+
     <div class="container mt-5">
         <div class="card shadow-sm p-4">
             <h3 class="mb-4 text-primary text-center">Registration Form</h3>
@@ -27,7 +50,7 @@
                     <label for="inputEmail4" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" required>
                     <div class="valid-feedback">Looks good.</div>
-                    <div class="invalid-feedback">Please pick a valid email address.</div>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
                 </div>
                 <div class="col-md-12">
                     <label for="inputCity" class="form-label">Tel</label>
@@ -39,19 +62,60 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label "  for="gridCheck">
-                            You must check this box.
+                            Click here to receive updates and benefits.
                         </label>
                     </div>
                 </div>
                 <div class="col-12 d-flex align-items-center justify-content-center">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primary">SUBMIT</button>
                 </div>
             </form>
         </div>
-    </div>
+    </div> 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+
+    <footer><!-- ไบร์ท -->
+    <div class="footerContainer">
+
+        <div class="Address">
+            <p>มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต<br>
+                99 หมู่ 18 ถนนพหลโยธิน ตำบลคลองหนึ่ง<br> 
+                อำเภอคลองหลวง จังหวัดปทุมธานี 12120</p>
+        </div>
+        
+        <div class="Contact">
+            <p>Contact US</p>
+            <div Class="list">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>  
+        </div>
+
+        <div class="feedbut">
+            <a href="feedback.html" class="py-2 px-3 rounded-3">Feedback</a>
+        </div>
+
+        <div class="up">
+            <button class="btn-top" onclick="scrollToTop()">
+                 <i class="fa-solid fa-arrow-up"></i>
+                </button>
+        </div>
+        
+    </div>
+  </footer>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
 </body>
 
 </html>

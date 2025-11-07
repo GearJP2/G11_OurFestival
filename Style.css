@@ -10,7 +10,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8vw 0.8vw;
+  padding: 0.8rem 0.8rem;
   background-color: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -48,9 +48,9 @@ p {
 .grp {
   font-family: "B612";
     text-decoration: none;
-    font-size: 1.8vw; font-weight: lighter;
+    font-size: 1.8vw;
     margin-bottom: -0.8vw;
-    color: #dedede;
+    color: #eed6ec;
 }
 
 .nav-links {
@@ -96,7 +96,7 @@ p {
 .slider {
   margin: auto;
   position: relative;
-  height: 41rem;
+  height: 35vw;
   width: 100%;
   display: grid;
   place-items: center;
@@ -104,7 +104,7 @@ p {
 }
 .slide-track {
   display: flex;
-  width: calc(71rem*12);
+  width: calc(60vw*12);
   animation: scroll 70s linear infinite;
 }
 .slide-track:hover {
@@ -115,7 +115,7 @@ p {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-600px*6));
+    transform: translateX(calc(-37.5rem*6));
   }
 }
 .slide {
@@ -260,7 +260,7 @@ button:hover {
   flex-wrap: wrap;
   align-items: center; 
   padding-top: 1rem;
-  gap: 20rem;
+  gap: 10rem;
   justify-content: center;
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -298,27 +298,62 @@ button:hover {
 }
 
 .feedbut a:hover {
-  color: #9B4F96;
-  background-color: #ffffff; transition: 0.5s ease;
+  color: #000000; background-color: #9B4F96;
+  transition: 0.5s ease;
 }
 
 .hero {
   position: relative;
-  height: 92vh;
-  background-image: url(resources/slide-cloth2.png);
+  height: 55rem;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 17.5rem;
+  justify-content: center; min-height: 51rem;
   font-family: "B612", sans-serif;
 }
 
-.hero p1 {
-  background: linear-gradient(100deg, #ab3a3a, #9B4F96); text-align: center;
-    -webkit-background-clip: text; user-select: none; line-height: 1.2;
+.Booth1 .hero {
+  background: url('resources/food1.jpg') center/cover no-repeat; 
+}
+
+.Booth1 .hero h1 {
+  background: linear-gradient(100deg, #ebc784, #7e3737); text-align: center;
+    -webkit-background-clip: text; line-height: 1.2; font-size: clamp(5rem, 10vw, 12rem);
+    -webkit-text-fill-color: transparent; font-family: "B612", sans-serif; 
+  font-weight: bolder;
+}
+
+.Booth2 .hero {
+  background-image: url(resources/slide-dessert1.png);
+}
+
+.Booth2 .hero h1 {
+  background: linear-gradient(100deg, #ff0000, #ffffff); text-align: center;
+    -webkit-background-clip: text; line-height: 1.2; font-size: clamp(5rem, 10vw, 12rem);
+    -webkit-text-fill-color: transparent; font-family: "B612", sans-serif; 
+  font-weight: bolder;
+}
+
+.Booth3 .hero {
+  background-image: url(resources/slide-cloth2.png);
+}
+
+.Booth3 .hero h1 {
+  background: linear-gradient(100deg, #d8ae77, #172669); text-align: center;
+    -webkit-background-clip: text; line-height: 1.2; font-size: clamp(5rem, 10vw, 12rem);
+    -webkit-text-fill-color: transparent; font-family: "B612", sans-serif; 
+  font-weight: bolder;
+}
+
+.Booth4 .hero {
+  background-image: url(resources/book.jpg);
+}
+
+.Booth4 .hero h1 {
+  background: linear-gradient(100deg, #4d0f0f,#f3d75d ); text-align: center;
+    -webkit-background-clip: text; line-height: 1.2; font-size: clamp(5rem, 10vw, 12rem);
     -webkit-text-fill-color: transparent; font-family: "B612", sans-serif; 
   font-weight: bolder;
 }
