@@ -222,9 +222,9 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: #6a9cf8;
+  border-color: #ff1313;
   outline: none;
-  box-shadow: 0 0 6px rgba(106, 156, 248, 0.3);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 textarea {
@@ -236,8 +236,8 @@ button {
   width: 100%;
   border-radius: 100vw;
   padding: 1vw;
-  background: #a77a0a;
-  color: white;
+  background: #1e57f3;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -245,7 +245,7 @@ button {
 }
 
 button:hover {
-  background: #c6c6c6;
+  background: #1e57f3a8;
 }
 
 .success-message {
@@ -408,4 +408,17 @@ button:hover {
 
 .card_textH {
   color: #8a6518;
+}
+
+.headfeed {
+  background: linear-gradient(135deg, #8a661831, #8a66185e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;   
+  height: 100vh;
+}
+
+.headfeed > * {
+  width: 50%;    
 }
