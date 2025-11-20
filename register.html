@@ -37,24 +37,25 @@
     <div class="container mt-5">
         <div class="card shadow-sm p-4">
             <h3 class="mb-4 text-primary text-center">Registration Form</h3>
-            <form class="row g-3 was-validated" novalidate>
+           <form action="summary_register.php" method="POST" class="row g-3 was-validated" novalidate>
+
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" required>
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="col-12">
                     <label for="inputAddress2" class="form-label">Surname</label>
-                    <input type="text" class="form-control" id="surname" required>
+                    <input type="text" class="form-control" id="surname" name="surname" required>
                 </div>
                 <div class="col-12">
                     <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <input type="email" class="form-control" id="email" name="email" required>
                     <div class="valid-feedback">Looks good.</div>
                     <div class="invalid-feedback">Please enter a valid email address.</div>
                 </div>
                 <div class="col-md-12">
                     <label for="inputCity" class="form-label">Tel</label>
-                    <input type="text" pattern = "[0-9]{10,10}" class="form-control" id="tel" placeholder="xxx-xxx-xxxx" required>
+                    <input type="text"  class="form-control" pattern="[0-9]{10}" id="tel" name="tel" placeholder="xxx-xxx-xxxx" required>
                     <div class="invalid-feedback">You must insert exact 10 numbers</div>
                 </div>
 
