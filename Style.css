@@ -422,3 +422,52 @@ button:hover {
 .headfeed > * {
   width: 50%;    
 }
+
+
+
+
+#display-info {
+    /* ใช้สีพื้นหลังที่ดูอบอุ่นและคล้องกับธีม */
+    background-color: #ffffff; /* สีเหลืองอ่อนมากๆ */
+    
+    /* ขอบที่หนาขึ้นและใช้สีหลัก (ทอง/น้ำตาล) */
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px;
+    
+    /* เงาที่ดูมีมิติเล็กน้อย */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /* จัดระยะห่างภายใน */
+    padding: 20px; 
+    
+    /* กำหนดฟอนต์ให้เข้ากับธีมหลัก */
+    font-family: "Noto Sans Thai", sans-serif;
+}
+
+#display-info h5 {
+    /* สีของ Title (Thank you for registering!) */
+    color: #343a40;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+#display-info p {
+    /* ปรับสีข้อความที่แสดงผลให้ชัดเจนขึ้น */
+    color: #555555; /* สีน้ำตาลเข้ม */
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 8px; /* ลดระยะห่างระหว่างบรรทัด */
+    text-align: left; /* จัดชิดซ้ายภายในกล่อง */
+   
+}
+
+#display-info p strong {
+    /* เน้นคำว่า Name, Email, Tel */
+    color: #343a40; 
+    font-weight: 700;
+    display: inline-block;
+    width: 80px; /* กำหนดความกว้างเพื่อให้ข้อความจัดเรียงสวยงาม */
+}

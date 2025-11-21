@@ -24,20 +24,20 @@
         <img src="./resources/photo.jpeg" alt="Logo" class="logo-img">
 
         <div class="site-name">
-            <a href="index.html" class="title"><span class="empalphabet">E</span>VENT<span class="grp">HORIZON</span></a>
+            <!--<a href="index.html" class="title"><span class="empalphabet">E</span>VENT<span class="grp">HORIZON</span></a>-->
         </div>
         </div>
 
         <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="register.html">Register</a>
+        <a href="register.php">Register</a>
         </div>
     </header>
 
     <div class="container mt-5">
         <div class="card shadow-sm p-4">
             <h3 class="mb-4 text-primary text-center">Registration Form</h3>
-            <form class="row g-3 was-validated" novalidate>
+            <form class="row g-3 was-validated" id="registrationForm" novalidate>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" required>
@@ -70,8 +70,83 @@
                     <button type="submit" class="btn btn-primary">SUBMIT</button>
                 </div>
             </form>
+            <div id="display-info" class="text-center mt-4 p-3 border rounded">
+            </div>
         </div>
     </div> 
+
+   
+    <!--js ของฟอร์มregister-->
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            // ตรวจสอบความถูกต้องของฟอร์มตาม HTML5 (Validation)
+            if (!this.checkValidity()) {
+                event.preventDefault(); 
+                event.stopPropagation();
+                this.classList.add('was-validated');
+                return;
+            }
+    
+            event.preventDefault(); // ป้องกันการส่งฟอร์มตามปกติ
+    
+            // 1. ดึงข้อมูลฟอร์ม
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            const email = document.getElementById('email').value;
+            const tel = document.getElementById('tel').value;
+    
+            const formData = { name, surname, email, tel };
+            
+            // 2. สร้างข้อความ HTML สำหรับแสดงผล
+            const displayDiv = document.getElementById('display-info');
+            displayDiv.innerHTML = `
+                <h5 class="text-success">Thank you for registering!</h5>
+                <p class="mb-1"><strong>Name:</strong> ${name} ${surname}</p>
+                <p class="mb-1"><strong>Email:</strong> ${email}</p>
+                <p class="mb-0"><strong>Tel:</strong> ${tel}</p>
+            `;
+            displayDiv.style.display = 'block'; // แสดงผลข้อมูล
+
+    
+            // 3. **ขั้นตอนส่งข้อมูลไปบันทึกด้วย PHP (ผ่าน Fetch API)**
+            fetch('save_data.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Server response:', data); 
+                // ล้างฟอร์ม
+                this.reset();
+                this.classList.remove('was-validated');
+
+               // POPUP
+                alert('Thank you for registering!');
+                 // **เนื่องจากคุณต้องการให้ "กดแบล็คไปหน้าหลัก" หลัง Submit** // ถ้าคุณต้องการให้ย้ายไปหน้าหลักทันทีหลังแสดงข้อมูล ให้เพิ่มโค้ดนี้:
+            window.location.href = 'index.html'; 
+
+
+            })
+            .catch(error => {
+                console.error('Error saving data:', error);
+                displayDiv.innerHTML = `<h5 class="text-danger">Error: Could not save data.</h5>`;
+                displayDiv.style.display = 'block';
+            });
+            
+           
+        });
+        
+        // โค้ด scrollToTop เดิม
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
