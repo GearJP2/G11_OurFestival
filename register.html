@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="Style.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+    </style>
+    <title>Register</title>
+
+</head>
+
+<body>
+
+    <header class="header"> <!-- ไตเติ้ล -->
+        <div class="logo-section">
+        <img src="./resources/photo.jpeg" alt="Logo" class="logo-img">
+
+        <div class="site-name">
+            <!--<a href="index.html" class="title"><span class="empalphabet">E</span>VENT<span class="grp">HORIZON</span></a>-->
+        </div>
+        </div>
+
+        <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="register.php">Register</a>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <div class="card shadow-sm p-4">
+            <h3 class="mb-4 text-primary text-center">Registration Form</h3>
+            <form class="row g-3 was-validated" id="registrationForm" novalidate>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Surname</label>
+                    <input type="text" class="form-control" id="surname" required>
+                </div>
+                <div class="col-12">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                    <div class="valid-feedback">Looks good.</div>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="col-md-12">
+                    <label for="inputCity" class="form-label">Tel</label>
+                    <input type="text" pattern = "[0-9]{10,10}" class="form-control" id="tel" placeholder="xxx-xxx-xxxx" required>
+                    <div class="invalid-feedback">You must insert exact 10 numbers</div>
+                </div>
+
+                <div class="col-12 d-flex align-items-center justify-content-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                        <label class="form-check-label "  for="gridCheck">
+                            Click here to receive updates and benefits.
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 d-flex align-items-center justify-content-center">
+                    <button type="submit" class="btn btn-primary">SUBMIT</button>
+                </div>
+            </form>
+            <div id="display-info" class="text-center mt-4 p-3 border rounded">
+            </div>
+        </div>
+    </div> 
+
+   
+    <!--js ของฟอร์มregister-->
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            // ตรวจสอบความถูกต้องของฟอร์มตาม HTML5 (Validation)
+            if (!this.checkValidity()) {
+                event.preventDefault(); 
+                event.stopPropagation();
+                this.classList.add('was-validated');
+                return;
+            }
+    
+            event.preventDefault(); // ป้องกันการส่งฟอร์มตามปกติ
+    
+            // 1. ดึงข้อมูลฟอร์ม
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            const email = document.getElementById('email').value;
+            const tel = document.getElementById('tel').value;
+    
+            const formData = { name, surname, email, tel };
+            
+            // 2. สร้างข้อความ HTML สำหรับแสดงผล
+            const displayDiv = document.getElementById('display-info');
+            displayDiv.innerHTML = `
+                <h5 class="text-success">Thank you for registering!</h5>
+                <p class="mb-1"><strong>Name:</strong> ${name} ${surname}</p>
+                <p class="mb-1"><strong>Email:</strong> ${email}</p>
+                <p class="mb-0"><strong>Tel:</strong> ${tel}</p>
+            `;
+            displayDiv.style.display = 'block'; // แสดงผลข้อมูล
+
+    
+            // 3. **ขั้นตอนส่งข้อมูลไปบันทึกด้วย PHP (ผ่าน Fetch API)**
+            fetch('save_data.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Server response:', data); 
+                // ล้างฟอร์ม
+                this.reset();
+                this.classList.remove('was-validated');
+
+               // POPUP
+                alert('Thank you for registering!');
+                 // **เนื่องจากคุณต้องการให้ "กดแบล็คไปหน้าหลัก" หลัง Submit** // ถ้าคุณต้องการให้ย้ายไปหน้าหลักทันทีหลังแสดงข้อมูล ให้เพิ่มโค้ดนี้:
+            window.location.href = 'index.html'; 
+
+
+            })
+            .catch(error => {
+                console.error('Error saving data:', error);
+                displayDiv.innerHTML = `<h5 class="text-danger">Error: Could not save data.</h5>`;
+                displayDiv.style.display = 'block';
+            });
+            
+           
+        });
+        
+        // โค้ด scrollToTop เดิม
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
+
+    <footer><!-- ไบร์ท -->
+    <div class="footerContainer">
+
+        <div class="Address">
+            <p>มหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต<br>
+                99 หมู่ 18 ถนนพหลโยธิน ตำบลคลองหนึ่ง<br> 
+                อำเภอคลองหลวง จังหวัดปทุมธานี 12120</p>
+        </div>
+        
+        <div class="Contact">
+            <p>Contact US</p>
+            <div Class="list">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>  
+        </div>
+
+        <div class="feedbut">
+            <a href="feedback.php" class="py-2 px-3 rounded-3">Feedback</a>
+        </div>
+
+        <div class="up">
+            <button class="btn-top" onclick="scrollToTop()">
+                 <i class="fa-solid fa-arrow-up"></i>
+                </button>
+        </div>
+        
+    </div>
+  </footer>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+
+</html>
