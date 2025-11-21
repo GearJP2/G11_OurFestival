@@ -262,33 +262,42 @@ button:hover {
   flex-wrap: wrap;
   align-items: center; 
   padding-top: 1rem;
-  gap: 10rem;
-  justify-content: center;
+  gap: 5rem;
+  justify-content: space-between;
+  
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
+.footerContainer > div {
+  flex: 1;
+  min-width: 200px; 
+} 
 
 .footerContainer p {
   white-space: nowrap;
 }
 
 .Address p{
-  font-size: 0.8rem; font-family: "Noto Sans Thai", sans-serif;
+  line-height: 1.4;
+  font-size: 1rem; 
+  font-family: "Noto Sans Thai", sans-serif;
 }
 
 .Contact{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .list {
-  margin-top: 1vw; 
+  margin-top: 15; 
 }
 
 .list a {
-  color: black; letter-spacing: 0.5vw;
-  font-size: 1vw;
+  color: black; 
+  letter-spacing: 0.5vw;
+  font-size: 30px;
 }
 
 .list a:hover {
@@ -296,12 +305,74 @@ button:hover {
 }
 
 .feedbut a {
-  color: #ffffff; text-decoration: none; font-family: "B612"; background-color: #a77a0a; font-size:0.8rem; font-weight: bold;
+  color: #ffffff; 
+  text-decoration: none; 
+ 
+  background-color: #a77a0a; 
+  font-size:0.8rem; 
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+.rightside {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;              
+}
+.feedbut a:hover {
+  color: #000000; 
+  background-color: #a77a0a;
+  transition: 0.5s ease;
 }
 
-.feedbut a:hover {
-  color: #000000; background-color: #a77a0a;
-  transition: 0.5s ease;
+.btn-top {
+  background-color: #a77a0a;
+  color: #ffffff;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;      
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;       
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+.btn-top:hover {
+  background-color: #c6950e;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .footerContainer {
+    gap: 1.5rem;
+    padding: 1.5rem 0.5rem;
+  }
+  .footerContainer > div {
+    min-width: auto;        
+    width: 100%;      
+  }
+  
+  .list a {
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem;
+  }
+
+  .up {
+    order: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;            
+  }
+  .rightside {
+    width: 100%;
+    justify-content: center;  
+  }
 }
 
 .hero {
