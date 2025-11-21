@@ -3,7 +3,7 @@ body {
 }
 
 p {
-    color: #B8860B; font-family: "B612";
+    color: #633191; font-family: "B612";
 }
 
 .header {
@@ -35,7 +35,7 @@ p {
 .site-name a {
   font-family: "B612"; text-decoration: none; font-size: 2.5rem;
   margin-bottom: -0.8vw; font-weight: 600;
-  color: #B8860B;
+  color: #633191;
 }
 
 .empalphabet {
@@ -47,7 +47,7 @@ p {
     text-decoration: none;
     font-size: 2.5rem;
     margin-bottom: -0.8vw;
-    color: #eee6d4;
+    color: #ded0ec;
 }
 
 .nav-links {
@@ -58,7 +58,7 @@ p {
 
 .nav-links a {
   font-family: "B612";
-  color: #B8860B; font-size: 1rem;
+  color: #633191; font-size: 1rem;
   border: none;
   padding-left: 1vw ; padding-right: 1vw; padding-top: 0.5vw; padding-bottom: 0.4vw;
   border-radius: 0.5vw; font-weight: bold;
@@ -67,30 +67,34 @@ p {
 }
 
 .nav-links a:hover {
-  background-color: #B8860B; color: #ffffff;
+  background-color: #633191; color: #ffffff;
   transform: translateY(-2px);
 }
 
+.allbooth {
+   margin-top: 5vw;
+}
+
 .allbooth h5 {
-  font-weight: bold; font-family: "B612"; color: #a77a0a;
+  font-weight: bold; font-family: "B612"; color: #633191;
 }
 
 .boothdi {
-    display: flex; background-color: #a77a0a; padding: 1.5vw; 
+    display: flex; background-color: #633191; padding: 1.5vw; 
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center;
 }
 
 .boothdi a {
-    font-size: 1.1rem; text-decoration: none; font-family: "B612"; color: #ffffff;
+    font-size: 1.1vw; text-decoration: none; font-family: "B612"; color: #ffffff;
     border-radius: 100vw; font-weight: bold;
     padding-top: 0.5vw; padding-bottom: 0.4vw; transition: all 0.5s ease; 
     margin-left: 2.5vw;margin-right: 2.5vw;
 }
 
 .boothdi a:hover {
-    color: #a77a0a; background-color: #eee6d4; border-radius: 100vw;
+    color: #633191; background-color: #ece2f5; border-radius: 100vw;
       padding-left: 1vw;
       padding-right: 1vw;
 }
@@ -142,7 +146,7 @@ p {
 }
 
 .text-custom{
-    color: #a77a0a;
+    color: #633191;
     font-family: "Inter";
 }
 
@@ -301,14 +305,14 @@ button:hover {
 }
 
 .list a:hover {
-  color: #a77a0a;
+  color: #633191;
 }
 
 .feedbut a {
   color: #ffffff; 
   text-decoration: none; 
  
-  background-color: #a77a0a; 
+  background-color: #633191; 
   font-size:0.8rem; 
   font-weight: bold;
   padding: 0.5rem 1rem;
@@ -323,12 +327,12 @@ button:hover {
 }
 .feedbut a:hover {
   color: #000000; 
-  background-color: #a77a0a;
+  background-color: #633191;
   transition: 0.5s ease;
 }
 
 .btn-top {
-  background-color: #a77a0a;
+  background-color: #633191;
   color: #ffffff;
   width: 45px;
   height: 45px;
@@ -343,7 +347,7 @@ button:hover {
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 .btn-top:hover {
-  background-color: #c6950e;
+  background-color: #633191;
   color: #000000;
 }
 
@@ -466,19 +470,18 @@ button:hover {
 .card_title {
   font-size: clamp(1.5rem, 3vw, 2.5rem); 
   font-weight: 700;
-  color: #8a6518;
+  color: #633191;
   margin-bottom: 1rem;
-  letter-spacing: 0.1em;
 }
 
 .card_text {
   font-size: clamp(1rem, 2vw, 1.25rem); 
   line-height: 1.5;
-  color: #8a6518;
+  color: #633191;
 }
 
 .card_textH {
-  color: #8a6518;
+  color: #633191;
 }
 
 .headfeed {
