@@ -23,6 +23,7 @@ if (file_exists($dataFile)) {
     $records = json_decode($json_data, true);
     if (!is_array($records)) $records = [];
 }
+
 // 2. ส่วนประมวลผลเมื่อกด SUBMIT (POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
@@ -40,42 +41,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'name'    => $name, 
             'surname' => $surname, 
             'email'   => $email, 
-            'tel'     => $tel
+            'tel'     => $tel,
+            'timestamp' => date('Y-m-d H:i:s')
         ];
         $records[] = $new_entry;
-        
-        // 3. บันทึกลงไฟล์ JSON
-        // ใช้ file_put_contents เพื่อเขียนข้อมูลทับลงไป
-        //$save_result = file_put_contents($dataFile, json_encode($records, JSON_PRETTY_PRINT));
 
-        //if ($save_result !== false) {
-            // ✅ บันทึกสำเร็จ
-           // $_SESSION['success_message'] = "Your information has been successfully registered!";
-           // $_SESSION['last_submission'] = $new_entry;
-          //  $_SESSION['all_records'] = $records; 
+        if (file_put_contents($dataFile, json_encode($records, JSON_PRETTY_PRINT)) !== false) {
             
-            // Redirect ไปหน้า Homp page
-           // header("Location: index.html");
-    
-            //exit; 
+            $_SESSION['success_message'] = "Your information has been successfully registered!";
+            $_SESSION['last_submission'] = $new_entry;
+            $_SESSION['all_records'] = $records;
 
-            
-
-            if (file_put_contents($dataFile, json_encode($records, JSON_PRETTY_PRINT)) !== false) {
-            
-                $_SESSION['success_message'] = "Your information has been successfully registered!";
-                $_SESSION['last_submission'] = $new_entry;
-                $_SESSION['all_records'] = $records;
-
-                // ⭐️⭐️⭐️ ส่วนที่แก้ไข: ใช้ JavaScript สร้าง POPUP และ Redirect ⭐️⭐️⭐️
-                echo "<script>
-                    alert('ลงทะเบียนสำเร็จ');
-                    window.location.href = 'index.html';
-                </script>";
-                exit; // จบการทำงานทันที เพื่อให้ Script ทำงาน
-                // ------------------------------------------------------------
+            echo "<script>
+                alert('✓ ลงทะเบียนสำเร็จ! ขอบคุณที่ลงทะเบียนกับเรา');
+                window.location.href = 'index.html';
+            </script>";
+            exit;
         } else {
-            // ❌ บันทึกไม่สำเร็จ (มักเกิดจาก Permission)
             $error = 'Error: Unable to write to data/registrations.json. Please check folder permissions.';
         }
     } else {
@@ -90,13 +72,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="Style.css" rel="stylesheet">
+    <link href="form-validation.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
     </style>
-    <title>Register</title>
+    <title>Register - EventHorizon</title>
 </head>
 
 <body>
@@ -119,50 +103,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h3 class="mb-4 text-primary text-center">Registration Form</h3>
             
             <?php if ($error): ?>
-                 <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>❌ Error:</strong> <?= htmlspecialchars($error) ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                 </div>
             <?php endif; ?>
 
-            <form class="row g-3 was-validated" method="POST" action="register.php" novalidate>
+            <form class="row g-3" method="POST" action="register.php" novalidate>
                 <div class="col-12">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required value="<?= htmlspecialchars($name) ?>">
+                    <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" required value="<?= htmlspecialchars($name) ?>" placeholder="กรอกชื่อของคุณ">
                 </div>
+                
                 <div class="col-12">
-                    <label for="surname" class="form-label">Surname</label>
-                    <input type="text" class="form-control" id="surname" name="surname" required value="<?= htmlspecialchars($surname) ?>">
+                    <label for="surname" class="form-label">Surname <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="surname" name="surname" required value="<?= htmlspecialchars($surname) ?>" placeholder="กรอกนามสกุลของคุณ">
                 </div>
+                
                 <div class="col-12">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required value="<?= htmlspecialchars($email) ?>">
-                    <div class="valid-feedback">Looks good.</div>
-                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" required value="<?= htmlspecialchars($email) ?>" placeholder="example@email.com">
                 </div>
+                
                 <div class="col-md-12">
-                    <label for="tel" class="form-label">Tel</label>
-                    <input type="text" pattern="[0-9]{10,10}" class="form-control" id="tel" name="tel" placeholder="xxx-xxx-xxxx" required value="<?= htmlspecialchars($tel) ?>">
-                    <div class="invalid-feedback">You must insert exact 10 numbers</div>
+                    <label for="tel" class="form-label">Tel <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="tel" name="tel" placeholder="0xx-xxx-xxxx" required value="<?= htmlspecialchars($tel) ?>">
                 </div>
 
-                <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="col-12 d-flex align-items-center justify-content-center mt-4">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
-                            Click here to receive updates and benefits.
+                            Click here to receive updates and benefits. <span class="text-danger">*</span>
                         </label>
                     </div>
                 </div>
-                <div class="col-12 d-flex align-items-center justify-content-center">
-                    <button type="submit" class="btn btn-primary">SUBMIT</button>
+                
+                <div class="col-12 d-flex align-items-center justify-content-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-5">SUBMIT</button>
                 </div>
             </form>
         </div>
     </div> 
-      
-    
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <script src="register-validation.js"></script>
 
     <footer>
         <div class="footerContainer">
@@ -180,21 +166,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <a href=""><i class="fa-brands fa-youtube"></i></a>
                 </div>  
             </div>
-            <div class="feedbut">
-                <a href="feedback.html" class="py-2 px-3 rounded-3">Feedback</a>
-            </div>
-            <div class="up">
-                <button class="btn-top" onclick="scrollToTop()">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </button>
+            <div class="rightside">
+                <div class="feedbut">
+                    <a href="feedback.php" class="py-2 px-3 rounded-3">Feedback</a>
+                </div>
+                <div class="up">
+                    <button class="btn-top" onclick="scrollToTop()">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 
 </body>

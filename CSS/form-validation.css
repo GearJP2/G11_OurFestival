@@ -1,0 +1,278 @@
+/* ===================================================
+   FORM VALIDATION STYLES
+   ใช้สำหรับ register.php และ feedback.php
+   =================================================== */
+
+/* Base Form Control Styles */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+/* Valid State (Success - Green) */
+.form-control.is-valid,
+select.valid,
+textarea.valid {
+    border-color: #28a745 !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Invalid State (Error - Red) */
+.form-control.is-invalid,
+select.invalid,
+textarea.invalid {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Feedback Messages (Hidden by Default) */
+.valid-feedback,
+.invalid-feedback {
+    display: none;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Show Feedback with Animation */
+.valid-feedback.show,
+.invalid-feedback.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input Icon Positioning */
+.input-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    pointer-events: none; /* ไม่รบกวนการคลิก input */
+}
+
+/* Wrapper for Input Icons */
+.input-wrapper {
+    position: relative;
+}
+
+/* Disabled Submit Button */
+.submit-btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Character Counter */
+.char-counter {
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-align: right;
+    margin-top: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.char-counter.warning {
+    color: #ffc107;
+}
+
+.char-counter.danger {
+    color: #dc3545;
+}
+
+/* Rating Preview (Stars) */
+.rating-preview {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: none;
+}
+
+/* Error Message */
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+    animation: slideDown 0.3s ease;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success Message with Bounce */
+.success-message {
+    animation: bounceIn 0.6s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Submit Button Loading State */
+.submit-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.submit-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+}
+
+/* Spin Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form Control with Valid Icon */
+.form-control.is-valid {
+    padding-right: calc(1.5em + 0.75rem);
+}
+
+/* Form Control with Invalid Icon */
+.form-control.is-invalid {
+    padding-right: calc(1.5em + 0.75rem);
+}
+
+/* Shake Animation for Errors */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+/* Pulse Animation for Success */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
+
+/* Apply Pulse to Valid Inputs */
+.form-control.is-valid {
+    animation: pulse 1s ease;
+}
+
+/* Focus States */
+.form-control:focus,
+select:focus,
+textarea:focus {
+    box-shadow: 0 0 0 0.25rem rgba(99, 49, 145, 0.25);
+    border-color: #633191;
+}
+
+/* Checkbox Animations */
+.form-check-input {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #633191;
+    border-color: #633191;
+    transform: scale(1.1);
+}
+
+.form-check-label {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Button Hover Effects */
+button[type="submit"]:hover:not(:disabled) {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+button[type="submit"]:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-control,
+    select,
+    textarea {
+        font-size: 16px; /* ป้องกันการ zoom บน mobile */
+    }
+
+    .input-icon {
+        right: 8px;
+        font-size: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .input-icon,
+    .char-counter,
+    .error-message,
+    .valid-feedback,
+    .invalid-feedback {
+        display: none;
+    }
+}
