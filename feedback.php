@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feedback - EventHorizon</title>
-  <link rel="stylesheet" href="Style.css">
-  <link href="form-validation.css" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/Style.css">
+  <link href="CSS/form-validation.css" rel="stylesheet">
   <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
