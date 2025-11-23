@@ -26,28 +26,46 @@ p {
 }
 
 .site-name {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
   text-align: center;
+  position: relative;
+  margin-top: 1rem;
 }
 
 .site-name a {
-  font-family: "B612"; text-decoration: none; font-size: 2.5rem;
-  margin-bottom: -0.8vw; font-weight: 600;
+  font-family: "B612";
+  text-decoration: none;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: -0.5rem;
+  font-weight: 600;
   color: #633191;
 }
 
 .empalphabet {
-  font-size: 2.75rem; font-family: "B612";
+  font-family: "B612";
+  font-size: clamp(1.8rem, 5.5vw, 2.75rem);
 }
 
 .grp {
   font-family: "B612";
-    text-decoration: none;
-    font-size: 2.5rem;
-    margin-bottom: -0.8vw;
-    color: #ded0ec;
+  text-decoration: none;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: -0.5rem;
+  color: #ded0ec;
+}
+
+@media (max-width: 768px) {
+  .site-name {
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  .site-name a,
+  .empalphabet,
+  .grp {
+    font-size: clamp(1.2rem, 6vw, 2rem);
+    margin-bottom: 0;
+  }
 }
 
 .nav-links {
@@ -80,14 +98,14 @@ p {
 }
 
 .boothdi {
-    display: flex; background-color: #633191; padding: 1.5vw; 
+    display: flex ; background-color: #633191; padding: 1.5vw; 
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center;
 }
 
 .boothdi a {
-    font-size: 1.1vw; text-decoration: none; font-family: "B612"; color: #ffffff;
+    text-decoration: none; font-family: "B612"; color: #ffffff;
     border-radius: 100vw; font-weight: bold;
     padding-top: 0.5vw; padding-bottom: 0.4vw; transition: all 0.5s ease; 
     margin-left: 2.5vw;margin-right: 2.5vw;
@@ -97,6 +115,26 @@ p {
     color: #633191; background-color: #ece2f5; border-radius: 100vw;
       padding-left: 1vw;
       padding-right: 1vw;
+}
+
+@media (max-width: 768px) {
+  .boothdi {
+    flex-direction: column;
+    padding: 3vw;
+  }
+  
+  .boothdi a {
+    padding-top: 1.5vw;
+    padding-bottom: 1.2vw;
+    margin-bottom: 1.5vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .boothdi a {
+    padding-top: 0.5vw;
+    padding-bottom: 0.4vw;
+  }
 }
 
 .slider {
@@ -393,19 +431,11 @@ button:hover {
   font-family: "B612", sans-serif;
 }
 
-.Booth1 .hero {
-  background: url('resources/food1.jpg') center/cover no-repeat; 
-}
-
 .Booth1 .hero h1 {
   background: linear-gradient(100deg, #ebc784, #7e3737); text-align: center;
     -webkit-background-clip: text; line-height: 1.2; font-size: clamp(5rem, 10vw, 12rem);
     -webkit-text-fill-color: transparent; font-family: "B612", sans-serif; 
   font-weight: bolder;
-}
-
-.Booth2 .hero {
-  background-image: url(resources/slide-dessert1.png);
 }
 
 .Booth2 .hero h1 {
@@ -415,19 +445,11 @@ button:hover {
   font-weight: bolder;
 }
 
-.Booth3 .hero {
-  background-image: url(resources/slide-cloth2.png);
-}
-
 .Booth3 .hero h1 {
   background: linear-gradient(100deg, #d8ae77, #172669); text-align: center;
     -webkit-background-clip: text; line-height: 1.2; font-size: clamp(5rem, 10vw, 12rem);
     -webkit-text-fill-color: transparent; font-family: "B612", sans-serif; 
   font-weight: bolder;
-}
-
-.Booth4 .hero {
-  background-image: url(resources/book.jpg);
 }
 
 .Booth4 .hero h1 {
