@@ -1,0 +1,4 @@
+ "data/registrations.json"
+  "data/feedback.json"
+*.json
+!spec/*.json
