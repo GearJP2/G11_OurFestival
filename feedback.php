@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </form>
 
-  <script src="feedback-validation.js"></script>
+  <script src="JS/feedback-validation.js"></script>
   
 </div>
 
