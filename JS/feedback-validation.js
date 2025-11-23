@@ -193,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form Submit Handler
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
         
         // Validate all fields
         const isNameValid = validateName(nameInput);
@@ -202,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const isMessageValid = validateMessage(messageTextarea);
         
         if (!isNameValid || !isEmailValid || !isRatingValid || !isMessageValid) {
+            e.preventDefault();
             const firstInvalid = form.querySelector('.invalid');
             if (firstInvalid) {
                 firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
