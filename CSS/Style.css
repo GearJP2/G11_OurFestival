@@ -8,9 +8,9 @@ p {
 
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; 
   align-items: center;
-  padding: 0.8rem 0.8rem;
+  padding: 0.8rem 2rem; 
   background-color: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -18,74 +18,88 @@ p {
 .logo-section {
   display: flex;
   align-items: center;
+  gap: 15px; 
 }
 
 .logo-img {
   width: 60px;
   height: 60px;
+  object-fit: contain;
 }
 
-.site-name {
-  width: 100%;
-  text-align: center;
-  position: relative;
-}
-
+/* ชื่อเว็บ */
 .site-name a {
   font-family: "B612";
   text-decoration: none;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  margin-bottom: -0.5rem;
+  font-size: 2rem; 
   font-weight: 600;
   color: #633191;
+  display: flex;
+  align-items: baseline;
 }
 
 .empalphabet {
-  font-family: "B612";
-  font-size: clamp(1.8rem, 5.5vw, 2.75rem);
+  font-size: 1.2em; 
 }
 
 .grp {
-  font-family: "B612";
-  text-decoration: none;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  margin-bottom: -0.5rem;
   color: #ded0ec;
 }
 
-@media (max-width: 768px) {
-  .site-name {
-    text-align: left;
-    padding-left: 1rem;
-  }
-
-  .site-name a,
-  .empalphabet,
-  .grp {
-    font-size: clamp(1.2rem, 6vw, 2rem);
-    margin-bottom: 0;
-  }
-}
-
+/* เมนู */
 .nav-links {
   display: flex;
-  gap: 15px;
-  margin-left: auto;
+  gap: 20px;
 }
 
 .nav-links a {
   font-family: "B612";
-  color: #633191; font-size: 1rem;
-  border: none;
-  padding-left: 1vw ; padding-right: 1vw; padding-top: 0.5vw; padding-bottom: 0.4vw;
-  border-radius: 0.5vw; font-weight: bold;
+  color: #633191;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
   text-decoration: none;
   transition: 0.3s;
 }
 
 .nav-links a:hover {
-  background-color: #633191; color: #ffffff;
+  background-color: #633191;
+  color: #ffffff;
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; 
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .logo-section {
+    flex-direction: column; 
+    text-align: center;
+    gap: 10px;
+  }
+
+  .site-name a {
+    justify-content: center; 
+    font-size: 1.8rem; 
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 15px;
+  }
+
+  .nav-links a {
+    background-color: #f5f0fa; 
+    width: auto;
+    text-align: center;
+  }
 }
 
 .allbooth {
